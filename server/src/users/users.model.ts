@@ -8,9 +8,7 @@ const UserSchema = new Schema<User>({
         unique: true
     },
     username: {
-        required: false,
         type: String,
-        unique: true
     },
     name: {
         required: true,

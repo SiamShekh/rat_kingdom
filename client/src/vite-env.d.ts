@@ -4,6 +4,8 @@ interface ImportMetaEnv {
     readonly VITE_PROJECT_NAME: string;
     readonly VITE_ICON: string;
     readonly VITE_TOKEN_SYMBOL: string;
+    readonly VITE_LOCAL_SERVER: string;
+    readonly VITE_LIVE_SERVER: string;
 }
 
 interface ImportMeta {
