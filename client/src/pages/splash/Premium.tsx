@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import premium from "../../assets/strikers/premium_user.gif";
 import PageState from "../../components/ui/splash/layout/PageState";
 import WebApp from "@twa-dev/sdk";
+import { useMyInfoQuery } from "../../redux-store/api/auth/UserInfoApi";
 const Premium = () => {
     {/* 
             Age
@@ -9,8 +10,10 @@ const Premium = () => {
             Username
             Channel Joined
             */}
-            console.log(WebApp.CloudStorage.getItem('token'));
-            
+    // console.log(WebApp.CloudStorage.getItem('token'));
+    const { data } = useMyInfoQuery(undefined);
+    console.log(data);
+
     return (
         <div className="max-h-screen min-h-screen bg-black p-3 relative">
             <PageState serial={1} />

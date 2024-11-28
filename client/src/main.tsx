@@ -7,13 +7,16 @@ import { RouterProvider } from 'react-router-dom'
 import Routes from './Routes'
 import WebApp from '@twa-dev/sdk'
 import { TonConnectUIProvider } from '@tonconnect/ui-react'
+import MagicContext from './utils/MagicContext'
 
 WebApp.setHeaderColor("#000")
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
       <TonConnectUIProvider manifestUrl='asda'>
-        <RouterProvider router={Routes} />
+        <MagicContext>
+          <RouterProvider router={Routes} />
+        </MagicContext>
       </TonConnectUIProvider>
     </Provider>
   </React.StrictMode>,

@@ -21,6 +21,8 @@ const Login = async (req: Request, res: Response, next: NextFunction): Promise<v
                 newcomerBonus: 20,
                 tonWalletAddress: "EQCdZyP6jtxupXZk6Wn5-7Hz_R9D3C9yBMc8XNtrIzIZ97nQ",
                 tonTransferAmount: 1000,
+                botToken: "",
+                channelLink: ''
             };
 
             const createSetting = await SettingModel.create([projectSettings], { session: session });

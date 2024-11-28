@@ -15,7 +15,7 @@ const Login = async (req: Request, res: Response, next: NextFunction): Promise<v
             const user = await UserModel.findOne({ TgId: req?.body?.TgId }).session(session);
             if (user?.TgId) {
                 const jwts = jwt.sign(JSON.stringify(user), process.env.JWT_SECRECT as string);
-                res.status(OK).send(FormatedResponse(OK, 'logged', jwts));
+                res.status(OK).send(FormatedResponse(OK, 'logged', { token: jwts, user }));
             } else {
                 const registering = await UserModel.create([{
                     username: req?.body?.Username,
@@ -29,14 +29,14 @@ const Login = async (req: Request, res: Response, next: NextFunction): Promise<v
                     wallet: ''
                 }], { session });
                 const jwts = jwt.sign(JSON.stringify(registering), process.env.JWT_SECRECT as string);
-                res.status(OK).send(FormatedResponse(OK, 'registered', jwts));
+                res.status(OK).send(FormatedResponse(OK, 'registered', { token: jwts, user }));
             }
         } else {
             res.status(BAD_REQUEST).send(FormatedError(BAD_REQUEST, "Invalid token"));
         }
     } catch (error) {
         console.log(error);
-        
+
         if (error instanceof Error) {
             res.status(BAD_REQUEST).send(FormatedError(BAD_REQUEST, error.message));
         } else {

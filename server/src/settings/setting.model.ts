@@ -34,6 +34,14 @@ const schema = new Schema<ProjectSettings>({
         type: String,
         required: true
     },
+    channelLink: {
+        type: String,
+        required: true
+    },
+    botToken: {
+        type: String,
+        required: true
+    },
 }, {
     timestamps: true
 });

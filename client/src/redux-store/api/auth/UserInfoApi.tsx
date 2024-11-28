@@ -8,8 +8,20 @@ const UserInfoApi = BaseApi.injectEndpoints({
                 body: arg,
                 method: 'POST',
             })
-        })
+        }),
+        MarkAsOld: builder.mutation({
+            query: () => ({
+                url: '/user/mark-as-old',
+                method: 'PATCH',
+            })
+        }),
+        MyInfo: builder.query({
+            query: () => ({
+                url: '/user/me',
+                method: 'GET',
+            })
+        }),
     })
 });
 
-export const { useLoginForUserMutation } = UserInfoApi;
+export const { useMyInfoQuery,useLoginForUserMutation,useMarkAsOldMutation } = UserInfoApi;

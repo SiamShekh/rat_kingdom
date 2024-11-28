@@ -7,6 +7,8 @@ interface ProjectSettings {
     newcomerBonus: number; 
     tonWalletAddress: string; 
     tonTransferAmount: number;
+    botToken: string,
+    channelLink: string
 }
 
 export default ProjectSettings;
