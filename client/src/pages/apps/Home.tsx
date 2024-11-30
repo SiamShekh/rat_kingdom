@@ -5,6 +5,7 @@ import Task from "../../components/ui/pages/home/Task";
 import RewardsCards from "../../components/ui/pages/home/RewardsCards";
 import { useMarkAsOldMutation } from "../../redux-store/api/auth/UserInfoApi";
 import { MagicCP } from "../../utils/MagicContext";
+import { useTaskListQuery } from "../../redux-store/api/auth/TaskInfoApi";
 
 const Home = () => {
     const [tabValue, setTabValue] = useState("socials");
@@ -16,6 +17,9 @@ const Home = () => {
             trigger(undefined);
         }
     }, [user?.user])
+    const {data} = useTaskListQuery(undefined);
+    console.log(data);
+    
     // make context
     // user info
     // updated

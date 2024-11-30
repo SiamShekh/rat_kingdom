@@ -23,6 +23,11 @@ const schema = new Schema<task>({
     point: {
         type: Number,
         required: true
+    },
+    recuring: {
+        type: String,
+        enum: ['one_time', "multiple"],
+        required: true
     }
 }, {
     timestamps: true

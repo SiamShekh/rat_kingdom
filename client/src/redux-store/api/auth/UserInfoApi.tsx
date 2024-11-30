@@ -21,7 +21,13 @@ const UserInfoApi = BaseApi.injectEndpoints({
                 method: 'GET',
             })
         }),
+        Leaderboard: builder.query({
+            query: () => ({
+                url: '/user/leaderboard',
+                method: 'GET',
+            })
+        }),
     })
 });
 
-export const { useMyInfoQuery,useLoginForUserMutation,useMarkAsOldMutation } = UserInfoApi;
+export const { useMyInfoQuery, useLoginForUserMutation, useMarkAsOldMutation, useLeaderboardQuery } = UserInfoApi;

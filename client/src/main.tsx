@@ -8,6 +8,7 @@ import Routes from './Routes'
 import WebApp from '@twa-dev/sdk'
 import { TonConnectUIProvider } from '@tonconnect/ui-react'
 import MagicContext from './utils/MagicContext'
+import { Toaster } from 'react-hot-toast'
 
 WebApp.setHeaderColor("#000")
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <TonConnectUIProvider manifestUrl='asda'>
         <MagicContext>
           <RouterProvider router={Routes} />
+          <Toaster/>
         </MagicContext>
       </TonConnectUIProvider>
     </Provider>

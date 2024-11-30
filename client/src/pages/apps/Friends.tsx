@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IoMdClose } from "react-icons/io";
+import { MagicCP } from "../../utils/MagicContext";
+import WebApp from "@twa-dev/sdk";
+import toast from "react-hot-toast";
 
 const Friends = () => {
     const [open, close] = useState(false);
+    const user = useContext(MagicCP);
+    console.log(user?.user);
+
     return (
         <div className="min-h-[70vh] max-h-[70vh] relative">
 
@@ -13,8 +19,11 @@ const Friends = () => {
                         <IoMdClose onClick={() => close(false)} className="absolute cursor-pointer right-5 text-2xl top-[50%] -translate-y-[50%] text-white" />
                     </div>
                     <div className="w- h-[1px] mt-5 bg-white"></div>
-                    <div className="bg-white text-black p-3 rounded-xl font-montserrat font-medium capitalize text-center mt-8 cursor-pointer">Copy invite link</div>
-                    <div className="bg-white text-black p-3 rounded-xl font-montserrat font-medium capitalize text-center mt-2 cursor-pointer">Share invite link</div>
+                    <div className="bg-white text-black p-3 rounded-xl font-montserrat font-medium capitalize text-center mt-8 cursor-pointer" onClick={() => {
+                        navigator.clipboard.writeText(`${import.meta.env.VITE_WEBAPP_LINK}?startapp=${user?.user?.refer_code}`)
+                        toast.success('Copied');
+                    }}>Copy invite link</div>
+                    <div className="bg-white text-black p-3 rounded-xl font-montserrat font-medium capitalize text-center mt-2 cursor-pointer" onClick={() => WebApp.openTelegramLink(`https://t.me/share/url?url=${import.meta.env.VITE_WEBAPP_LINK}/app?startapp=${user?.user?.refer_code}&text=${import.meta.env.VITE_FRIENDS_MESSAGE}`)}>Share invite link</div>
                     <p className="font-montserrat text-center font-medium text-white mt-5">Invite friends to get more {import.meta.env.VITE_TOKEN_SYMBOL}</p>
                 </div>
             </dialog>
