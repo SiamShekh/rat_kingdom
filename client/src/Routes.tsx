@@ -10,57 +10,84 @@ import Home from "./pages/apps/Home";
 import Collaboration from "./pages/apps/Collaboration";
 import Leaderboard from "./pages/apps/Leaderboard";
 import Friends from "./pages/apps/Friends";
+import AdminLayouts from "./Layouts/AdminLayouts";
+import Dashboard from "./pages/admins/Dashboard";
+import Login from "./pages/admins/Login";
+import Tasks from "./pages/admins/Tasks";
+import User from "./pages/admins/User";
 
 const Routes = createBrowserRouter([
-    {
-        path: '/',
-        element: <MainLayouts />,
-        children: [
-            {
-                index: true,
-                element: <Home/>
-            },
-            {
-                path: 'collaboration',
-                element: <Collaboration/>
-            },
-            {
-                path: 'leaderboard',
-                element: <Leaderboard/>
-            },
-            {
-                path: 'friends',
-                element: <Friends/>
-            },  
-        ]
-    },
-    {
-        path: '/splash',
-        element: <Loading />,
-    },
-
-    {
-        path: '/new-comer',
-        element: <SplashLayout/>,
-        children: [
-            {
-                index: true,
-                element: <Premium />
-            },
-            {
-                path: 'age',
-                element: <Age />
-            },
-            {
-                path: 'username',
-                element: <Username />
-            },
-            {
-                path: 'channel-joined',
-                element: <ChannelJoined />
-            }
-        ]
-    }
+  {
+    path: "/",
+    element: <MainLayouts />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "collaboration",
+        element: <Collaboration />,
+      },
+      {
+        path: "leaderboard",
+        element: <Leaderboard />,
+      },
+      {
+        path: "friends",
+        element: <Friends />,
+      },
+    ],
+  },
+  {
+    path: "/splash",
+    element: <Loading />,
+  },
+  {
+    path: "/new-comer",
+    element: <SplashLayout />,
+    children: [
+      {
+        index: true,
+        element: <Premium />,
+      },
+      {
+        path: "age",
+        element: <Age />,
+      },
+      {
+        path: "username",
+        element: <Username />,
+      },
+      {
+        path: "channel-joined",
+        element: <ChannelJoined />,
+      },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <AdminLayouts />,
+    children: [
+      {
+        index: true,
+        element: <Dashboard />,
+      },
+      
+      {
+        path: "/admin/task",
+        element: <Tasks />,
+      },
+      {
+        path: "/admin/user",
+        element: <User />,
+      },
+    ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
 ]);
 
 export default Routes;

@@ -1,13 +1,19 @@
-import { FaTelegramPlane } from "react-icons/fa";
 import TaskItem from "./TaskItem";
+import task from "../../../../types/tasks.interface";
+type props = {
+    item: task,
+    isComplete: boolean
+}
+const Task = ({ category, task }: { category: string, task: props[] }) => {
+    console.log(task);
 
-const Task = ({ category }: { category: string }) => {
     return (
         <div className="flex flex-col gap-2 mt-5">
-            <TaskItem />
-            <TaskItem />
-            <TaskItem />
-            <TaskItem />
+            {
+                task?.map((item: props) => (
+                    <TaskItem task={item}/>
+                ))
+            }
         </div>
     );
 };

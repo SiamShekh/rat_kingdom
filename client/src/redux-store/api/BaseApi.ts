@@ -7,11 +7,11 @@ const BaseApi = createApi({
         baseUrl: import.meta.env.DEV ? import.meta.env.VITE_LOCAL_SERVER : import.meta.env.VITE_LIVE_SERVER,
         prepareHeaders(headers) {
             headers.set("Authorization", `Bearer ${localStorage.getItem('token')}`);
-            
+
             return headers;
         },
     }),
-
+    tagTypes: ["task"]
 });
 
 export default BaseApi;
