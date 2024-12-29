@@ -28,7 +28,7 @@ const AdminLayouts = () => {
     <div className="bg-black">
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center ">
+        <div className="drawer-content flex flex-col ">
           <div className="navbar text-white lg:hidden">
             <div className="flex-none">
               <label

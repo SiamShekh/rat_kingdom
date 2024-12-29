@@ -1,9 +1,40 @@
-import React from 'react';
+import { MdAddTask, MdEmojiPeople, MdGeneratingTokens } from "react-icons/md";
+import StatsCard from "../../components/ui/pages/admin/dashboard/StatsCard";
+import { FaPeopleGroup } from 'react-icons/fa6';
 
 const Dashboard = () => {
     return (
-        <div className='text-white'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dignissimos ipsa hic laborum rerum sint quos quaerat. Nulla sunt non eveniet impedit recusandae delectus, error animi magnam quis veritatis temporibus eligendi eos enim veniam accusamus beatae rerum? Rem quas incidunt quasi repudiandae sunt est fugit quibusdam, expedita, porro odit quam.
+        <div className='min-h-screen '>
+            <div className="grid grid-cols-3 items-center gap-5">
+                <StatsCard
+                    icon={<FaPeopleGroup />}
+                    result="In the last 30 days, 4,000 new users have joined."
+                    stats_number="5000000"
+                    title="Total User"
+                    key={0}
+                />
+                <StatsCard
+                    icon={<MdEmojiPeople />}
+                    result="In the last 24 hours, 1,000 users is active."
+                    stats_number="1000"
+                    title="Active User"
+                    key={1}
+                />
+                <StatsCard
+                    icon={<MdAddTask />}
+                    result="In the last 30 days, 30,000 tasks have been completed."
+                    stats_number="50000"
+                    title="Task Completed"
+                    key={2}
+                />
+                <StatsCard
+                    icon={<MdGeneratingTokens />}
+                    result="In the last 30 days, 442,421 new tokens were earned."
+                    stats_number="5000000545"
+                    title="Token Holding"
+                    key={3}
+                />
+            </div>
         </div>
     );
 };
