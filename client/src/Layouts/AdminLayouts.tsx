@@ -1,6 +1,6 @@
-import React from "react";
 import { CiBoxList } from "react-icons/ci";
 import { FaUser } from "react-icons/fa";
+import { IoIosWallet } from "react-icons/io";
 import { MdDashboard } from "react-icons/md";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
@@ -20,6 +20,11 @@ const AdminLayouts = () => {
       title: "Task",
       link: "/admin/task",
       icon: <CiBoxList />,
+    },
+    {
+      title: "Wallet",
+      link: "/admin/wallet",
+      icon: <IoIosWallet />,
     },
   ];
   const pathName = useLocation()?.pathname;

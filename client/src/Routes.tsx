@@ -15,6 +15,7 @@ import Dashboard from "./pages/admins/Dashboard";
 import Login from "./pages/admins/Login";
 import Tasks from "./pages/admins/Tasks";
 import User from "./pages/admins/User";
+import Wallet from "./pages/admins/Wallet";
 
 const Routes = createBrowserRouter([
   {
@@ -81,6 +82,10 @@ const Routes = createBrowserRouter([
       {
         path: "/admin/user",
         element: <User />,
+      },
+      {
+        path: "/admin/wallet",
+        element: <Wallet />,
       },
     ],
   },
