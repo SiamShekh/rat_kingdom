@@ -8,7 +8,13 @@ const SettingInfoApi = BaseApi.injectEndpoints({
                 method: 'GET',
             })
         }),
+        DashboardStats: builder.query({
+            query: () => ({
+                url: '/setting/stats',
+                method: 'GET',
+            })
+        }),
     })
 });
 
-export const { useChannelJoinedInfoQuery } = SettingInfoApi;
+export const { useChannelJoinedInfoQuery, useDashboardStatsQuery } = SettingInfoApi;

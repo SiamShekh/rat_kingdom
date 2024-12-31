@@ -1,11 +1,15 @@
 import { MdAddTask, MdEmojiPeople, MdGeneratingTokens } from "react-icons/md";
 import StatsCard from "../../components/ui/pages/admin/dashboard/StatsCard";
 import { FaPeopleGroup } from 'react-icons/fa6';
+import { useDashboardStatsQuery } from "../../redux-store/api/auth/SettingInfoApi";
 
 const Dashboard = () => {
+    const { data } = useDashboardStatsQuery(undefined);
+    console.log(data);
+
     return (
         <div className='min-h-screen '>
-            <div className="grid grid-cols-3 items-center gap-5">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 items-center gap-5">
                 <StatsCard
                     icon={<FaPeopleGroup />}
                     result="In the last 30 days, 4,000 new users have joined."

@@ -33,7 +33,7 @@ const Loading = () => {
         if (status === 'pending') {
             setLoading(true)
         } else if (status === 'fulfilled') {
-            localStorage.setItem('token', data?.data?.token);
+            sessionStorage.setItem('token', data?.data?.token);
 
             if (data?.data?.user?.is_newcomer === false) {
                 navigate('/', {

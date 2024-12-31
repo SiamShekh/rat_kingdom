@@ -6,9 +6,14 @@ const BaseApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: import.meta.env.DEV ? import.meta.env.VITE_LOCAL_SERVER : import.meta.env.VITE_LIVE_SERVER,
         prepareHeaders(headers) {
-            headers.set("Authorization", `Bearer ${localStorage.getItem('token')}`);
-
+            headers.set("Authorization", `Bearer ${sessionStorage.getItem('token')}`);
             return headers;
+        },
+        validateStatus(_response, body) {
+            if (body?.status_code === 403) {
+                location.href = '/login';
+            }
+            return true;
         },
     }),
     tagTypes: ["task"]
