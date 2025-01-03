@@ -10,8 +10,9 @@ const BaseApi = createApi({
             return headers;
         },
         validateStatus(_response, body) {
+            const pathName = location.pathname;
             if (body?.status_code === 403) {
-                location.href = '/login';
+                location.href = `/login?redirect=${pathName}`;
             }
             return true;
         },

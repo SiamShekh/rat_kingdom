@@ -27,6 +27,12 @@ const UserInfoApi = BaseApi.injectEndpoints({
                 method: 'GET',
             })
         }),
+        GetLatestUser: builder.query({
+            query: () => ({
+                url: '/user/latest',
+                method: 'GET',
+            })
+        }),
     })
 });
 

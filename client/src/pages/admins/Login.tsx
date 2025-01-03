@@ -3,7 +3,7 @@ import mountain_images from "../../assets/images/mountain_shadow.webp";
 import { useLoginForAdminMutation } from "../../redux-store/api/auth/AdminInfoApi";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 interface onLogin {
   email: string;
@@ -14,6 +14,9 @@ const Login = () => {
   const { register, handleSubmit } = useForm<onLogin>();
   const [triggerLogin, { data, status, isLoading }] = useLoginForAdminMutation();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const pathName = searchParams.get("redirect");
+
   const onLogin = async (e: onLogin) => {
     triggerLogin(e);
   }
@@ -32,7 +35,7 @@ const Login = () => {
           toast.dismiss();
           toast.success(data?.msg, { duration: 3000 });
           sessionStorage.setItem('token', data?.data);
-          navigate('/admin', { replace: true })
+          navigate(pathName === null ? '/admin' : pathName, { replace: true })
         }
         break;
       default:
