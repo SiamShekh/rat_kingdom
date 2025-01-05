@@ -36,4 +36,4 @@ const UserInfoApi = BaseApi.injectEndpoints({
     })
 });
 
-export const { useMyInfoQuery, useLoginForUserMutation, useMarkAsOldMutation, useLeaderboardQuery } = UserInfoApi;
+export const { useMyInfoQuery, useLazyMyInfoQuery, useLoginForUserMutation, useMarkAsOldMutation, useLeaderboardQuery, useGetLatestUserQuery } = UserInfoApi;

@@ -1,6 +1,6 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
-import { useMyInfoContextQuery } from "../redux-store/api/auth/ContextInfoApi";
+import { createContext, ReactNode, useEffect } from "react";
 import User from "../types/users.interface";
+import { useLazyMyInfoQuery } from "../redux-store/api/auth/UserInfoApi";
 
 type value = {
     user: User | null,
@@ -8,11 +8,17 @@ type value = {
 
 export const MagicCP = createContext<value | null>(null);
 const MagicContext = ({ children }: { children: ReactNode }) => {
-    const data = useMyInfoContextQuery(undefined);
+    const { pathname } = location;
+    const [trigger, { data }] = useLazyMyInfoQuery();
+    useEffect(() => {
+        if (!pathname.includes('/admin')) {
+            trigger(undefined);
+        }
+    }, [pathname])
     // const [user, setUser] = useState<User | null>(null);
-    
+
     const value: value = {
-        user: data?.data?.data
+        user: data?.data
     }
     return (
         <MagicCP.Provider value={value}>

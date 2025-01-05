@@ -11,6 +11,6 @@ interface User {
     is_newcomer: boolean,
     createdAt?: string,
     updatedAt?: string
-};
+}
 
 export default User;

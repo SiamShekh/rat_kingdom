@@ -20,9 +20,6 @@ const UserInfo = ({ user }: { user: User }) => {
             <td>{user?.refer_code}</td>
             <td>{user?.refer_by}</td>
             <td>{user?.createdAt}</td>
-            <th>
-                <button className="btn btn-ghost btn-xs">details</button>
-            </th>
         </tr>
     );
 };

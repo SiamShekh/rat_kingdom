@@ -7,6 +7,7 @@ interface InputProps {
     type?: string;
     className?: string;
     labelColor?: string;
+    defaultValue?:string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -15,7 +16,8 @@ const Input: React.FC<InputProps> = ({
     name,
     type = "text",
     className = "",
-    labelColor = ""
+    labelColor = "",
+    defaultValue
 }) => {
     const { register } = useFormContext();
 
@@ -28,6 +30,7 @@ const Input: React.FC<InputProps> = ({
                 id={name}
                 type={type}
                 placeholder={placeholder}
+                defaultValue={defaultValue}
                 {...register(name)}
                 className={`input input-bordered w-full bg-white/20 ${className}`}
             />

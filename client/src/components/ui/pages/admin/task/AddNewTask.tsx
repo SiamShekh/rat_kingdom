@@ -1,19 +1,22 @@
 import { FormProvider, useForm } from "react-hook-form";
 import Input from "../../../../components/Input";
 import task from "../../../../../types/tasks.interface";
+import { useCreateTaskForAdminMutation } from "../../../../../redux-store/api/auth/TaskInfoApi";
 
 const AddNewTask = ({ open, close }: { open: boolean, close: React.Dispatch<React.SetStateAction<boolean>> }) => {
     const methods = useForm<task>();
-    const da = (e) => {
-        console.log(e);
-
+    const [mutation] = useCreateTaskForAdminMutation();
+    const HandleAddNew = (e: task) => {
+        mutation(e);
+        close(false);
     }
+
     return (
         <dialog id="my_modal_5" open={open} className="modal backdrop-blur-sm modal-bottom sm:modal-middle duration-500">
             <div className="modal-box bg-black border border-white/30">
                 <h3 className="font-bold text-lg">Add Task</h3>
                 <FormProvider {...methods}>
-                    <form onSubmit={methods.handleSubmit(da)} className="flex flex-col gap-3">
+                    <form onSubmit={methods.handleSubmit(HandleAddNew)} className="flex flex-col gap-3">
                         <Input
                             label="What is the task title?"
                             name="title"
