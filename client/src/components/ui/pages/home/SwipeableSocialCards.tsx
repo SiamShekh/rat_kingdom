@@ -22,8 +22,18 @@ const SwipeableSocialCards: React.FC = () => {
 
     return (
         <div {...handlers} ref={containerRef} className="w-full flex gap-3 overflow-x-auto scrollbar-hide">
-            <SocialCardItem />
-            <SocialCardItem />
+            <SocialCardItem
+                title='Join Telegram Channel'
+                description='Join our telegram channel for get letest news and updates.'
+                cta='Join Channel'
+                href={import.meta.env.VITE_TELEGRAM_CHANNEL}
+            />
+           <SocialCardItem
+                title='Subscribe'
+                description='Subscribe youtube channel for understand how we work and why we pay you?'
+                cta='Subscribe'
+                href={import.meta.env.VITE_YOUTUBE_CHANNEL}
+            />
         </div>
     );
 };

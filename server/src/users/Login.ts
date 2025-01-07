@@ -10,6 +10,7 @@ import FormatedResponse from "../utils/FormatedResponse";
 
 const Login = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const session = await mongoose.startSession();
+    //TODO: ADD REFER FUNCTIONALITY
     try {
         if (!isValid(req?.body?.init, process?.env?.BOT_TOKEN as string)) {
             const user = await UserModel.findOne({ TgId: req?.body?.TgId }).session(session);

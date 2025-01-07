@@ -42,7 +42,7 @@ const TaskItem = ({ task }: { task: props }) => {
             setClick(true);
         }, 10000);
     }
-    
+
     const renderButton = () => {
         if (task?.isComplete) {
             return (
@@ -87,12 +87,14 @@ const TaskItem = ({ task }: { task: props }) => {
     return (
         <div>
             <div className="flex justify-between items-center gap-4">
-                <div className="bg-white bg-opacity-10 p-2 text-white rounded-full">
-                    {getCoin(task?.item?.category)}
-                </div>
-                <div>
-                    <p className="line-clamp-2 font-montserrat font-medium text-white text-sm">{task?.item?.title}</p>
-                    <p className="font-montserrat font-bold text-white text-sm text-opacity-50">+ {task?.item?.point} {import.meta.env.VITE_TOKEN_SYMBOL}</p>
+                <div className="flex items-center gap-3">
+                    <div className="bg-white bg-opacity-10 p-2 text-white rounded-full">
+                        {getCoin(task?.item?.category)}
+                    </div>
+                    <div>
+                        <p className="line-clamp-2 font-montserrat font-medium text-white text-sm">{task?.item?.title}</p>
+                        <p className="font-montserrat font-bold text-white text-sm text-opacity-50">+ {task?.item?.point} {import.meta.env.VITE_TOKEN_SYMBOL}</p>
+                    </div>
                 </div>
                 {
                     renderButton()

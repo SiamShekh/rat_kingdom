@@ -7,6 +7,8 @@ const AddNewTask = ({ open, close }: { open: boolean, close: React.Dispatch<Reac
     const methods = useForm<task>();
     const [mutation] = useCreateTaskForAdminMutation();
     const HandleAddNew = (e: task) => {
+        console.log(e);
+        
         mutation(e);
         close(false);
     }
@@ -36,11 +38,11 @@ const AddNewTask = ({ open, close }: { open: boolean, close: React.Dispatch<Reac
                             </div>
                             <select {...methods.register('category')} className="select select-bordered bg-white/20 ">
                                 <option disabled defaultValue={'Pick one'}>Pick one</option>
-                                <option className="text-black">Telegram</option>
-                                <option className="text-black">X</option>
-                                <option className="text-black">Facebook</option>
-                                <option className="text-black">Youtube</option>
-                                <option className="text-black">Visit</option>
+                                <option className="text-black" value={'telegram'}>Telegram</option>
+                                <option className="text-black" value={'x'}>X</option>
+                                <option className="text-black" value={'facebook'}>Facebook</option>
+                                <option className="text-black" value={'youtube'}>Youtube</option>
+                                <option className="text-black" value={'visit'}>Visit</option>
                             </select>
                         </label>
                         <label className="form-control w-full ">
@@ -48,10 +50,10 @@ const AddNewTask = ({ open, close }: { open: boolean, close: React.Dispatch<Reac
                                 <span className="label-text text-white">Pick the type</span>
                             </div>
                             <select {...methods.register('type')} className="select select-bordered bg-white/20 ">
-                                <option disabled defaultValue={'Social'}>Pick one</option>
-                                <option className="text-black">Friend</option>
-                                <option className="text-black">Special</option>
-                                <option className="text-black">Social</option>
+                                <option disabled defaultValue={'social'}>Pick one</option>
+                                <option className="text-black" value={'friend'}>Friend</option>
+                                <option className="text-black" value={'special'}>Special</option>
+                                <option className="text-black" value={'social'}>Social</option>
                             </select>
                         </label>
                         <label className="form-control w-full ">
@@ -60,13 +62,13 @@ const AddNewTask = ({ open, close }: { open: boolean, close: React.Dispatch<Reac
                             </div>
                             <select {...methods.register('recuring')} className="select select-bordered bg-white/20 ">
                                 <option disabled defaultValue={'one_time'}>Pick one</option>
-                                <option className="text-black">one_time</option>
-                                <option className="text-black">multiple</option>
+                                <option className="text-black" value={'one_time'}>one_time</option>
+                                <option className="text-black" value={`multiple`}>multiple</option>
                             </select>
                         </label>
                         <Input
                             label="What is the task link?"
-                            name="link"
+                            name="href"
                             placeholder="href..."
                             labelColor="text-white"
                         />

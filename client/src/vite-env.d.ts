@@ -6,6 +6,8 @@ interface ImportMetaEnv {
     readonly VITE_TOKEN_SYMBOL: string;
     readonly VITE_LOCAL_SERVER: string;
     readonly VITE_LIVE_SERVER: string;
+    readonly VITE_TELEGRAM_CHANNEL: string;
+    readonly VITE_YOUTUBE_CHANNEL: string;
 }
 
 interface ImportMeta {

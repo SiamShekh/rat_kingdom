@@ -33,7 +33,13 @@ const UserInfoApi = BaseApi.injectEndpoints({
                 method: 'GET',
             })
         }),
+        tracking: builder.query({
+            query: () => ({
+                url: '/user/tracking',
+                method: 'GET',
+            })
+        }),
     })
 });
 
-export const { useMyInfoQuery, useLazyMyInfoQuery, useLoginForUserMutation, useMarkAsOldMutation, useLeaderboardQuery, useGetLatestUserQuery } = UserInfoApi;
+export const {useTrackingQuery, useMyInfoQuery, useLazyMyInfoQuery, useLoginForUserMutation, useMarkAsOldMutation, useLeaderboardQuery, useGetLatestUserQuery } = UserInfoApi;
