@@ -2,10 +2,6 @@ import { model, Schema } from "mongoose";
 import ProjectSettings from "./setting.interface";
 
 const schema = new Schema<ProjectSettings>({
-    adminLoginCode: {
-        type: Number,
-        required: true
-    },
     projectName: {
         type: String,
         required: true
@@ -22,7 +18,11 @@ const schema = new Schema<ProjectSettings>({
         type: Number,
         required: true
     },
-    referralRewards: {
+    newcomerReferrelBonus: {
+        type: Number,
+        required: true
+    },
+    newcomerPremiumReferrelBonus: {
         type: Number,
         required: true
     },
@@ -40,6 +40,18 @@ const schema = new Schema<ProjectSettings>({
     },
     botToken: {
         type: String,
+        required: true
+    },
+    tonTransferReward: {
+        type: Number,
+        required: true
+    },
+    genarelReferringBonus: {
+        type: Number,
+        required: true
+    },
+    premiumReferringBonus: {
+        type: Number,
         required: true
     },
 }, {

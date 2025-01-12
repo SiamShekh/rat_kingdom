@@ -1,14 +1,9 @@
 import WebApp from "@twa-dev/sdk";
 import { useNavigate } from "react-router-dom";
 import { useLoginForUserMutation } from "../../redux-store/api/auth/UserInfoApi";
-import { useContext, useEffect, useState } from "react";
-import { MagicCP } from "../../utils/MagicContext";
+import { useEffect, useState } from "react";
 
 const Loading = () => {
-    // the loading screen is appire until come the response from server
-    // in the time try to retrive user info from server 
-    // and if user exists then go on home page and if user is new go on rewards page
-    const context = useContext(MagicCP);
 
     const [TriggerInstance, { data, status }] = useLoginForUserMutation();
     const [loading, setLoading] = useState(true);
@@ -22,33 +17,36 @@ const Loading = () => {
                 "Username": WebApp.initDataUnsafe.user?.username,
                 "TgId": WebApp.initDataUnsafe.user?.id,
                 "referBy": WebApp.initDataUnsafe.start_param,
-                "init": WebApp.initData
+                "init": WebApp.initData,
+                "premium": WebApp.initDataUnsafe.user?.is_premium ? true : false,
             };
             TriggerInstance(user);
         }
         unSubscibe();
-    }, []);
+    }, [TriggerInstance]);
 
     useEffect(() => {
         if (status === 'pending') {
-            setLoading(true)
+            setLoading(true);
         } else if (status === 'fulfilled') {
             sessionStorage.setItem('token', data?.data?.token);
+            WebApp.CloudStorage.setItem('authToken', data?.data?.token);
+            console.log(data?.data);
 
             if (data?.data?.user?.is_newcomer === false) {
                 navigate('/', {
                     replace: true,
-                })
+                });
             } else {
                 navigate('/new-comer', {
                     replace: true,
-                })
+                });
             }
         } else if (status === 'rejected') {
             setLoading(false);
             setRejected(true)
         }
-    }, [status])
+    }, [status, data?.data?.token, data?.data?.user?.is_newcomer, navigate])
 
     return (
         <div className="min-h-screen flex justify-center items-center bg-black">

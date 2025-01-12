@@ -1,12 +1,15 @@
 interface ProjectSettings {
-    adminLoginCode: number,
     projectName: string; 
     projectSymbol: string;  
-    referralRewards: number;
     referralCommissionRate: number;
     newcomerBonus: number; 
+    newcomerReferrelBonus: number; 
+    newcomerPremiumReferrelBonus: number; 
+    genarelReferringBonus: Number,
+    premiumReferringBonus: Number,
     tonWalletAddress: string; 
     tonTransferAmount: number;
+    tonTransferReward: number;
     botToken: string,
     channelLink: string
 }

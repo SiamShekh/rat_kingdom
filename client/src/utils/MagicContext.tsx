@@ -8,14 +8,11 @@ type value = {
 
 export const MagicCP = createContext<value | null>(null);
 const MagicContext = ({ children }: { children: ReactNode }) => {
-    const { pathname } = location;
+    // const { pathname } = location;
     const [trigger, { data }] = useLazyMyInfoQuery();
     useEffect(() => {
-        if (!pathname.includes('/admin')) {
-            trigger(undefined);
-        }
-    }, [pathname])
-    // const [user, setUser] = useState<User | null>(null);
+        trigger(undefined);
+    }, [trigger])
 
     const value: value = {
         user: data?.data
