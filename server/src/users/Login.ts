@@ -14,7 +14,7 @@ import TrackingModel from "../point tracking/Tracking.model";
 const Login = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const session = await mongoose.startSession();
     try {
-        if (isValid(req?.body?.init, process?.env?.BOT_TOKEN as string)) {
+        if (!isValid(req?.body?.init, process?.env?.BOT_TOKEN as string)) {
             const user = await UserModel.findOne({ TgId: req?.body?.TgId }).session(session);
             const setting = await SettingModel.findOne({}).session(session);
             

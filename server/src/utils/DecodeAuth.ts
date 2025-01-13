@@ -7,9 +7,9 @@ const DecodeAuth = async (Req: Request, res: Response, next: NextFunction): Prom
         const token = String(Req.headers.authorization)?.split('Bearer')[1]?.trim();
         
         jwt.verify(token as string, process.env.JWT_SECRECT as string, (error, decode) => {
-            if (error) {
-                throw new Error(error.message);
-            }
+            // if (error) {
+            //     throw new Error(error.message);
+            // }
 
             Req.body.user = decode;
             next();

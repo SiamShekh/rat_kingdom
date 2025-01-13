@@ -17,7 +17,7 @@ const BaseApi = createApi({
             return true;
         },
     }),
-    tagTypes: ["task"]
+    tagTypes: ["task", "collaboration"]
 });
 
 export default BaseApi;
