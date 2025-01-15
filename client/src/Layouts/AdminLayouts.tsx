@@ -1,5 +1,6 @@
 import { CiBoxList } from "react-icons/ci";
-import { FaUser } from "react-icons/fa";
+import { FaClipboardList, FaUser } from "react-icons/fa";
+import { GiBrandyBottle } from "react-icons/gi";
 import { IoIosWallet } from "react-icons/io";
 import { MdDashboard } from "react-icons/md";
 import { Link, Outlet, useLocation } from "react-router-dom";
@@ -20,6 +21,16 @@ const AdminLayouts = () => {
       title: "Task",
       link: "/admin/task",
       icon: <CiBoxList />,
+    },
+    {
+      title: "Collaboration Identity",
+      link: "/admin/identity",
+      icon: <GiBrandyBottle />,
+    },
+    {
+      title: "Collaboration Task",
+      link: "/admin/collaboration",
+      icon: <FaClipboardList />,
     },
     {
       title: "Wallet",

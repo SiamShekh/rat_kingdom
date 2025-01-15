@@ -7,6 +7,7 @@ export interface Collaboration_Task {
     point: number;
     icon: string;
     href: string,
+    category: string;
     recuring: 'one_time' | 'multiple',
     createdAt?: string;
     updatedAt?: string;
@@ -27,6 +28,10 @@ const schema = new Schema<Collaboration_Task>({
         required: true
     },
     href: {
+        type: String,
+        required: true
+    },
+    category: {
         type: String,
         required: true
     },

@@ -13,11 +13,12 @@ interface Item {
     icon: string
     point: number
     href: string
+    category: string;
 }
 
 
 interface props {
-    open: string,
+    open: string | undefined,
     close: React.Dispatch<React.SetStateAction<string | undefined>>
 }
 const CollaborationModal = ({ open, close }: props) => {

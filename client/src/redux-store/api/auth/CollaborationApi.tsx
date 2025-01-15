@@ -19,7 +19,15 @@ const CollaborationApi = BaseApi.injectEndpoints({
             }),
             providesTags: ["collaboration"]
         }),
+        CompletedIdentity: builder.mutation({
+            query: (arg) => ({
+                url: '/task//identity/complete-task',
+                method: 'POST',
+                body: arg
+            }),
+            invalidatesTags: ["collaboration"]
+        }),
     })
 });
 
-export const {useGetIdentityQuery, useGetTaskQuery} = CollaborationApi;
+export const { useGetIdentityQuery, useGetTaskQuery, useCompletedIdentityMutation } = CollaborationApi;

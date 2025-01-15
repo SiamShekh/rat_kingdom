@@ -30,6 +30,7 @@ const TaskItem = ({ task }: { task: props }) => {
                 return <HiMiniCursorArrowRays className="text-3xl" />;
         }
     };
+    
     const HandleTask = (id: string) => {
         setLoading(true);
         if (task?.item?.category === "telegram") {
@@ -46,7 +47,7 @@ const TaskItem = ({ task }: { task: props }) => {
     const renderButton = () => {
         if (task?.isComplete) {
             return (
-                <button className="font-montserrat px-5 rounded-full font-medium bg-white text-white text-xl py-2 bg-opacity-10">
+                <button className="font-montserrat px-5 rounded-full font-medium bg-white text-white text-sm py-2 bg-opacity-10">
                     <FaCheckCircle />
                 </button>
             );
@@ -56,7 +57,7 @@ const TaskItem = ({ task }: { task: props }) => {
             return (
                 <button
                     onClick={() => HandleTask(task?.item?._id as string)}
-                    className="font-montserrat px-3 rounded-full font-medium bg-white text-white text-xl py-1 bg-opacity-10"
+                    className="font-montserrat px-3 rounded-full font-medium bg-white text-white text-sm py-1 bg-opacity-10"
                 >
                     <span className="loading loading-dots loading-lg"></span>
                 </button>
@@ -67,7 +68,7 @@ const TaskItem = ({ task }: { task: props }) => {
             return (
                 <button
                     onClick={() => trigger({ taskId: task?.item?._id as string })}
-                    className="font-montserrat px-3 rounded-full font-medium bg-white text-white text-xl py-1 bg-opacity-10"
+                    className="font-montserrat px-3 rounded-full font-medium bg-white text-white text-sm py-1 bg-opacity-10"
                 >
                     Claim
                 </button>
@@ -77,7 +78,7 @@ const TaskItem = ({ task }: { task: props }) => {
         return (
             <button
                 onClick={() => HandleTask(task?.item?._id as string)}
-                className="font-montserrat px-3 rounded-full font-medium bg-white text-white text-xl py-1 bg-opacity-10"
+                className="font-montserrat px-3 rounded-full font-medium bg-white text-white text-sm py-1 bg-opacity-10"
             >
                 Start
             </button>

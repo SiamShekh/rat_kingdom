@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from "express";
 import mongoose from "mongoose";
-import FormatedError from "../utils/FormatedError";
 import { BAD_REQUEST, OK } from "http-status-codes";
-import FormatedResponse from "../utils/FormatedResponse";
-import { Collaboration_Identity_Model } from "../collaboration identity/Collaboration_identity.model";
-import { Collaboration_Task_Model } from "./collaboration_task.model";
+import { Collaboration_Identity_Model } from "../../collaboration identity/Collaboration_identity.model";
+import { Collaboration_Task_Model } from "../collaboration_task.model";
+import FormatedResponse from "../../utils/FormatedResponse";
+import FormatedError from "../../utils/FormatedError";
 
 const NewTask = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const session = await mongoose.startSession();

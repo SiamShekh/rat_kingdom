@@ -16,6 +16,8 @@ import Login from "./pages/admins/Login";
 import Tasks from "./pages/admins/Tasks";
 import User from "./pages/admins/User";
 import Wallet from "./pages/admins/Wallet";
+import CollaborationIdentity from "./pages/admins/CollaborationIdentity";
+import CollaborationTask from "./pages/admins/CollaborationTask";
 
 const Routes = createBrowserRouter([
   {
@@ -74,7 +76,7 @@ const Routes = createBrowserRouter([
         index: true,
         element: <Dashboard />,
       },
-      
+
       {
         path: "/admin/task",
         element: <Tasks />,
@@ -86,6 +88,14 @@ const Routes = createBrowserRouter([
       {
         path: "/admin/wallet",
         element: <Wallet />,
+      },
+      {
+        path: "/admin/identity",
+        element: <CollaborationIdentity />,
+      },
+      {
+        path: "/admin/collaboration",
+        element: <CollaborationTask />,
       },
     ],
   },
