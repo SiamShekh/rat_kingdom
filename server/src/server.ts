@@ -9,7 +9,7 @@ async function main() {
     await defaultAdmin();
     
     app.listen(process.env.PORT, () => {
-        console.log(`http://localhost:${process.env.PORT}/`);
+        console.log(`- LIVE: http://localhost:${process.env.PORT}/`);
     })
 }
 
@@ -17,9 +17,9 @@ async function defaultAdmin() {
     const admin = await AdminModel.findOne({});
     if (!admin?._id) {
         const admin = await AdminModel.create({ email: process.env.EMAIL, password: process.env.PASSWORD });
-        console.log(`✔️ NEW ADMIN CREATED! ${admin?._id}`);
+        console.log(`- NEW ADMIN CREATED! ${admin?.email}`);
     }else{
-        console.log(`😍 ALREADY HAVE AN ADMIN! ${admin?._id}`);
+        console.log(`- ALREADY HAVE AN ADMIN! ${admin?.email}`);
     }
 
     const setting = await SettingModel.findOne({});

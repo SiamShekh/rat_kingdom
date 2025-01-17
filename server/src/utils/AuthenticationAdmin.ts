@@ -9,22 +9,26 @@ const AuthenticationAdmin = async (Req: Request, res: Response, next: NextFuncti
 
         if (token === 'null') {
             res.send(FormatedResponse(FORBIDDEN, "Token not found!", []));
+            return;
         }
 
         jwt.verify(token as string, process.env.JWT_SECRECT as string, async (error, decode: any) => {
             if (error) {
                 res.send(FormatedResponse(FORBIDDEN, error?.message, []));
+                return;
             }
             const admin = await AdminModel.findOne({ email: decode?.email });
             if (admin?._id) {
                 next();
             } else {
                 res.send(FormatedResponse(FORBIDDEN, 'Admin not found!', []));
+                return;
             }
         })
     } catch (error) {
         if (error instanceof Error) {
             res.send(FormatedResponse(FORBIDDEN, error.message, []));
+            return;
         }
     }
 };

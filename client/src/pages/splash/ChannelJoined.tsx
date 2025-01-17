@@ -3,29 +3,9 @@ import chat from "../../assets/strikers/chatting.gif";
 import PageState from "../../components/ui/splash/layout/PageState";
 import { FaTelegram } from "react-icons/fa";
 import { useChannelJoinedInfoQuery } from "../../redux-store/api/auth/SettingInfoApi";
-import { useMarkAsOldMutation } from "../../redux-store/api/auth/UserInfoApi";
-import { useContext } from "react";
-import { MagicCP } from "../../utils/MagicContext";
-interface ApiResponse {
-    ok: boolean;
-    result: {
-        user: {
-            id: number;
-            is_bot: boolean;
-            first_name: string;
-            last_name: string;
-            username: string;
-            language_code: string;
-            is_premium: boolean;
-        };
-        status: string;
-        is_anonymous: boolean;
-    };
-}
 
 const ChannelJoined = () => {
-    const { refetch, data, isFetching } = useChannelJoinedInfoQuery(undefined);
-    console.log(data);
+    const { data } = useChannelJoinedInfoQuery(undefined);
     
     
     return (

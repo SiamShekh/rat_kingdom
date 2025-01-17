@@ -5,36 +5,35 @@ import { useDashboardStatsQuery } from "../../redux-store/api/auth/SettingInfoAp
 
 const Dashboard = () => {
     const { data } = useDashboardStatsQuery(undefined);
-    console.log(data);
 
     return (
         <div className='min-h-screen '>
             <div className="grid lg:grid-cols-3 md:grid-cols-2 items-center gap-5">
                 <StatsCard
                     icon={<FaPeopleGroup />}
-                    result="In the last 30 days, 4,000 new users have joined."
-                    stats_number="5000000"
+                    result={`In the last 30 days, ${data?.data?.user30d || 0} new users have joined.`}
+                    stats_number={data?.data?.user || 0}
                     title="Total User"
                     key={0}
                 />
                 <StatsCard
                     icon={<MdEmojiPeople />}
-                    result="In the last 24 hours, 1,000 users is active."
-                    stats_number="1000"
+                    result={`In the last 24 hours, ${data?.data?.activeUser1d} users is active.`}
+                    stats_number={data?.data?.activeUser || 0}
                     title="Active User"
                     key={1}
                 />
                 <StatsCard
                     icon={<MdAddTask />}
-                    result="In the last 30 days, 30,000 tasks have been completed."
-                    stats_number="50000"
+                    result={`In the last 30 days, ${data?.data?.taskComplete30d || 0} tasks have been completed.`}
+                    stats_number={data?.data?.taskComplete || 0}
                     title="Task Completed"
                     key={2}
                 />
                 <StatsCard
                     icon={<MdGeneratingTokens />}
-                    result="In the last 30 days, 442,421 new tokens were earned."
-                    stats_number="5000000545"
+                    result={`In the last 30 days, ${data?.data?.pointHolding30d || 0} new tokens were earned.`}
+                    stats_number={data?.data?.pointHolding || 0}
                     title="Token Holding"
                     key={3}
                 />

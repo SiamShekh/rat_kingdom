@@ -31,7 +31,7 @@ const TaskItem = ({ task }: { task: props }) => {
         }
     };
     
-    const HandleTask = (id: string) => {
+    const HandleTask = () => {
         setLoading(true);
         if (task?.item?.category === "telegram") {
             WebApp.openTelegramLink(task?.item?.href);
@@ -56,7 +56,7 @@ const TaskItem = ({ task }: { task: props }) => {
         if (loading) {
             return (
                 <button
-                    onClick={() => HandleTask(task?.item?._id as string)}
+                    onClick={() => HandleTask()}
                     className="font-montserrat px-3 rounded-full font-medium bg-white text-white text-sm py-1 bg-opacity-10"
                 >
                     <span className="loading loading-dots loading-lg"></span>
@@ -77,7 +77,7 @@ const TaskItem = ({ task }: { task: props }) => {
 
         return (
             <button
-                onClick={() => HandleTask(task?.item?._id as string)}
+                onClick={() => HandleTask()}
                 className="font-montserrat px-3 rounded-full font-medium bg-white text-white text-sm py-1 bg-opacity-10"
             >
                 Start

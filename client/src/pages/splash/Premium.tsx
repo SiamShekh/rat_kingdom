@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import premium from "../../assets/strikers/premium_user.gif";
 import PageState from "../../components/ui/splash/layout/PageState";
-import WebApp from "@twa-dev/sdk";
 import { useMyInfoQuery } from "../../redux-store/api/auth/UserInfoApi";
 const Premium = () => {
     {/* 

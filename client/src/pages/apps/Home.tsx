@@ -23,7 +23,7 @@ const Home = () => {
             trigger(undefined);
         }
     }, [user?.user]);
-    const { data: tracking_records, isLoading: tracking_loading } = useTrackingQuery(undefined);
+    const { data: tracking_records } = useTrackingQuery(undefined);
     const { data } = useTaskListQuery(undefined);
 
     const socials = data?.data?.filter((item: props) => (item?.item?.type === "social" ? item : null));
